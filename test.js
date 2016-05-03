@@ -49,7 +49,7 @@ if (config.consumer_key) {
       t.ok(data.ids, 'has ids')
       t.ok(Array.isArray(data.ids), 'ids is an array')
       t.ok(data.ids.length > 10, 'has more than 10 friends')
-      t.ok(data.ids.indexOf('76543') > -1)
+      t.ok(data.ids.indexOf('76543') > -1, 'contains this id')
 
       t.end()
     })
