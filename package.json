@@ -1,7 +1,7 @@
 {
   "name": "twitter-friends-webtask",
-  "description": "Get the ids of a twitter user's friends.",
-  "version": "0.0.0",
+  "description": "Webtask to get the ids of a Twitter user's friends.",
+  "version": "1.0.0",
   "author": "Luke Karrys <luke@lukekarrys.com>",
   "bugs": {
     "url": "https://github.com/lukekarrys/twitter-friends-webtask/issues"
@@ -25,6 +25,7 @@
     "friends",
     "twitter"
   ],
+  "private": true,
   "license": "MIT",
   "main": "twitter-friends.js",
   "pre-commit": [
