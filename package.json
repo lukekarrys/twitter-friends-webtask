@@ -20,6 +20,11 @@
     "webtask-require-version": "^1.0.1",
     "wt-cli": "^3.3.0"
   },
+  "greenkeeper": {
+    "ignore": [
+      "twit"
+    ]
+  },
   "homepage": "https://github.com/lukekarrys/twitter-friends-webtask#readme",
   "keywords": [
     "friends",
