@@ -7,7 +7,7 @@
     "url": "https://github.com/lukekarrys/twitter-friends-webtask/issues"
   },
   "dependencies": {
-    "twit": "2.2.3"
+    "twit": "2.2.4"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
