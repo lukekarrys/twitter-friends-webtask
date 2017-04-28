@@ -1,48 +1,38 @@
-import test from 'tape'
+require('dotenv').config()
 
-// Override default require to allow for @x.y.z syntax
-// Also, webtask needs to use 'require' here instead of ES6
-// import because of babel (I think)
-require('webtask-require-version')
+const test = require('tape')
 const friends = require('./twitter-friends')
 
 const userId = '26007452'
-let config = {}
-
-try {
-  config = require('./config')
-} catch (e) {
-  config = {}
-}
 
 test('Errors without a user/token/secret', (t) => {
   friends({data: {}}, (err, res) => {
     t.ok(err, 'has an error')
     t.ok(err instanceof Error, 'is an instance of error')
-    t.equal(err.message, 'You must specify a user id, token, and tokenSecret')
+    t.equal(err.message, 'You must specify an id, token, and secret')
     t.notOk(res, 'has no res')
     t.end()
   })
 })
 
 test('Errors without CONSUMER and SECRET', (t) => {
-  friends({data: {id: userId, token: 'sdfsdf', tokenSecret: 'sdfsdf'}}, (err, res) => {
+  friends({data: {id: userId, token: 'sdfsdf', secret: 'sdfsdf'}}, (err, res) => {
     t.ok(err, 'has an error')
     t.ok(err instanceof Error, 'is an instance of error')
-    t.equal(err.message, 'You should create your webtask with the CONSUMER and SECRET')
+    t.equal(err.message, 'You should create your webtask with the CONSUMER_KEY and CONSUMER_SECRET')
     t.notOk(res, 'has no res')
     t.end()
   })
 })
 
-if (config.consumer_key) {
+if (process.env.CONSUMER_KEY) {
   test('Returns data with a token', (t) => {
     friends({data: {
       id: userId,
-      CONSUMER: config.consumer_key,
-      SECRET: config.consumer_secret,
-      token: config.access_token,
-      tokenSecret: config.access_token_secret
+      CONSUMER_KEY: process.env.CONSUMER_KEY,
+      CONSUMER_SECRET: process.env.CONSUMER_SECRET,
+      ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+      ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET
     }}, (err, data) => {
       t.notOk(err, ' no error')
 
