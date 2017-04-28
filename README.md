@@ -13,27 +13,27 @@ Webtask to get the ids of a Twitter user's friends.
  # Only needed the first time to initialize the webtask cli
 npm run init -- YOUR@EMAIL.COM
 
-# To create one where consumers should use their own access token/secret
-npm run create -- \
-  --secret CONSUMER=CONSUMER_KEY \
-  --secret SECRET=CONSUMER_SECRET
+# Update with your Twitter app's credentials
+#
+# To create one where consumers should supply their own access token/secret
+# only set CONSUMER_KEY and CONSUMER_SECRET
+#
+# Otherwise set all of them and the app will use all auth from your app
+cp .env.example .env
 
-# Or one that will work with only a user id (but use all the auth from you)
-npm run create -- \
-  --secret CONSUMER=CONSUMER_KEY \
-  --secret SECRET=CONSUMER_SECRET \
-  --secret token=ACCESS_TOKEN \
-  --secret tokenSecret=ACCESS_TOKEN_SECRET
+# Create webtask
+npm run create
 
 # Your container name will be shown after you create the webtask
-# Depending on which of the above you used, you might need to supply token & tokenSecret here
-curl -s https://webtask.it.auth0.com/api/run/{CONTAINER_NAME}/twitter-friends?id=USER_ID
+curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends?id=USER_ID
+# Or if you decided to supply a token and secret in the request
+curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends?id=USER_ID&token=TOKEN&secret=SECRET
 ```
 
 
 ## Contributing
 
-Only the [whitelisted webtask.io](https://tehsis.github.io/webtaskio-canirequire/) modules can be used.
+To be run locally, this requires `node >= 6.0.0`. When deployed it uses `use latest` so `wt-cli` builds it with `babel`.
 
 
 ## Tests
