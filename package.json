@@ -42,6 +42,7 @@
     "local": "wt serve --secrets-file .env twitter-friends.js",
     "logs": "wt logs",
     "test": "tape test.js | tap-spec",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "wt": "wt"
   }
 }

@@ -25,9 +25,9 @@ cp .env.example .env
 npm run create
 
 # Your container name will be shown after you create the webtask
-curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends?id=USER_ID
+curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends-webtask?id=USER_ID
 # Or if you decided to supply a token and secret in the request
-curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends?id=USER_ID&token=TOKEN&secret=SECRET
+curl -s https://wt-{CONTAINER_NAME}.run.webtask.io/twitter-friends-webtask?id=USER_ID&token=TOKEN&secret=SECRET
 ```
 
 
