@@ -25,14 +25,21 @@ test('Errors without CONSUMER and SECRET', (t) => {
   })
 })
 
-if (process.env.CONSUMER_KEY) {
+const {
+  CONSUMER_KEY,
+  CONSUMER_SECRET,
+  ACCESS_TOKEN,
+  ACCESS_TOKEN_SECRET
+} = process.env
+
+if (ACCESS_TOKEN && ACCESS_TOKEN_SECRET) {
   test('Returns data with a token', (t) => {
     friends({data: {
       id: userId,
-      CONSUMER_KEY: process.env.CONSUMER_KEY,
-      CONSUMER_SECRET: process.env.CONSUMER_SECRET,
-      ACCESS_TOKEN: process.env.ACCESS_TOKEN,
-      ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET
+      CONSUMER_KEY: CONSUMER_KEY,
+      CONSUMER_SECRET: CONSUMER_SECRET,
+      ACCESS_TOKEN: ACCESS_TOKEN,
+      ACCESS_TOKEN_SECRET: ACCESS_TOKEN_SECRET
     }}, (err, data) => {
       t.notOk(err, ' no error')
 
