@@ -1,6 +1,8 @@
 twitter-friends-webtask
 ==================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lukekarrys/twitter-friends-webtask.svg)](https://greenkeeper.io/)
+
 Webtask to get the ids of a Twitter user's friends.
 
 [![Build Status](https://travis-ci.org/lukekarrys/twitter-friends-webtask.png?branch=master)](https://travis-ci.org/lukekarrys/twitter-friends-webtask)
