@@ -32,5 +32,5 @@ module.exports = (ctx, cb) => {
     access_token: useToken,
     access_token_secret: useSecret
   })
-  .get('friends/ids', {user_id: id, stringify_ids: true}, cb)
+    .get('friends/ids', {user_id: id, stringify_ids: true}, cb)
 }
